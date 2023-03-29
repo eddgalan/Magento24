@@ -2,9 +2,9 @@ magento:
   build: .
   container_name: magento-web
   ports:
-    - "8081:80"
+    - "8089:80"
   volumes:
     - ./:/var/www/html
   external_links:
-    - service-mysql:mysql
+    - mysql:mysql
     - elasticsearch7:elasticsearch7

@@ -1,6 +1,6 @@
 FROM debian:11.3
 # Instalando Apache2
-RUN apt-get update -y && apt upgrade -y && apt-get install -y curl openssl zip unzip lsb-release apt-transport-https ca-certificates wget
+RUN apt-get update -y && apt upgrade -y && apt-get install -y curl openssl zip unzip lsb-release apt-transport-https ca-certificates wget nano
 RUN apt-get install -y apache2
 # COPY ./config-files/000-default.conf /etc/apache2/sites-available/000-default.conf
 # COPY ./config-files/apache2.conf /etc/apache2/apache2.conf
@@ -15,7 +15,6 @@ RUN apt-get install -y php7.4 libapache2-mod-php7.4 php7.4-mysql php7.4-soap php
 RUN apachectl restart
 # Instalando Composer 1.10.16
 RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer && composer self-update 1.10.16
-# Instalando Magento 2.4
-# COPY ./config-files/auth.json /root/.composer/auth.json
 WORKDIR /var/www/html
+RUN chown -R www-data:www-data /var/www/html && chmod -R 775 /var/www/html/
 CMD apachectl -DFOREGROUND
