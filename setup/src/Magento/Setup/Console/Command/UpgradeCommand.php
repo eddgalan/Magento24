@@ -6,9 +6,11 @@
 namespace Magento\Setup\Console\Command;
 
 use Magento\Deploy\Console\Command\App\ConfigImportCommand;
-use Magento\Framework\App\State as AppState;
 use Magento\Framework\App\DeploymentConfig;
 use Magento\Framework\App\ObjectManager;
+use Magento\Framework\App\State as AppState;
+use Magento\Framework\Console\Cli;
+use Magento\Framework\Exception\RuntimeException;
 use Magento\Framework\Config\CacheInterface;
 use Magento\Framework\Setup\ConsoleLogger;
 use Magento\Framework\Setup\Declaration\Schema\DryRunLogger;
@@ -140,16 +142,17 @@ class UpgradeCommand extends AbstractSetupCommand
             $searchConfig = $this->searchConfigFactory->create();
             $this->cache->clean();
             $searchConfig->validateSearchEngine();
+            $installer->removeUnusedTriggers();
             $installer->installSchema($request);
-            $installer->installDataFixtures($request);
+            $installer->installDataFixtures($request, true);
 
             if ($this->deploymentConfig->isAvailable()) {
                 $importConfigCommand = $this->getApplication()->find(ConfigImportCommand::COMMAND_NAME);
                 $arrayInput = new ArrayInput([]);
                 $arrayInput->setInteractive($input->isInteractive());
                 $result = $importConfigCommand->run($arrayInput, $output);
-                if ($result === \Magento\Framework\Console\Cli::RETURN_FAILURE) {
-                    throw new \Magento\Framework\Exception\RuntimeException(
+                if ($result === Cli::RETURN_FAILURE) {
+                    throw new RuntimeException(
                         __('%1 failed. See previous output.', ConfigImportCommand::COMMAND_NAME)
                     );
                 }
@@ -160,11 +163,18 @@ class UpgradeCommand extends AbstractSetupCommand
                     '<info>Please re-run Magento compile command. Use the command "setup:di:compile"</info>'
                 );
             }
+            $output->writeln(
+                "<info>Media files stored outside of 'Media Gallery Allowed' folders"
+                . " will not be available to the media gallery.</info>"
+            );
+            $output->writeln(
+                '<info>Please refer to Developer Guide for more details.</info>'
+            );
         } catch (\Exception $e) {
             $output->writeln('<error>' . $e->getMessage() . '</error>');
-            return \Magento\Framework\Console\Cli::RETURN_FAILURE;
+            return Cli::RETURN_FAILURE;
         }
 
-        return \Magento\Framework\Console\Cli::RETURN_SUCCESS;
+        return Cli::RETURN_SUCCESS;
     }
 }
