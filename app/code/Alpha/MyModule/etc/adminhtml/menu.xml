@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-        <add id="Alpha_MyModule::custom_menu"
+        <add id="Alpha_MyModule::alphabackend"
              title="Alpha Team Dev"
              module="Alpha_MyModule"
              sortOrder="0"
@@ -11,7 +11,7 @@
              title="Alpha Team Dev - Index"
              module="Alpha_MyModule"
              sortOrder="10"
-             parent="Alpha_MyModule::custom_menu"
+             parent="Alpha_MyModule::alphabackend"
              action="alpha/index"
              resource="Alpha_MyModule::index"
         />
