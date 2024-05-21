@@ -1,7 +1,7 @@
 <?php
 return [
     'backend' => [
-        'frontName' => 'admin'
+        'frontName' => 'admin_15tn6n'
     ],
     'remote_storage' => [
         'driver' => 'file'
@@ -10,16 +10,16 @@ return [
         'consumers_wait_for_messages' => 1
     ],
     'crypt' => [
-        'key' => '73320134930e7ebf1ca8e26a12459a4e'
+        'key' => '3bc4cf08d82e69b15681ddeed70963dd'
     ],
     'db' => [
         'table_prefix' => '',
         'connection' => [
             'default' => [
                 'host' => 'mysql',
-                'dbname' => 'magento',
-                'username' => 'root',
-                'password' => 'mysql',
+                'dbname' => 'mage',
+                'username' => 'mage',
+                'password' => '12345678a',
                 'model' => 'mysql4',
                 'engine' => 'innodb',
                 'initStatements' => 'SET NAMES utf8;',
@@ -73,7 +73,10 @@ return [
         'config_webservice' => 1,
         'translate' => 1
     ],
+    'downloadable_domains' => [
+        'localhost'
+    ],
     'install' => [
-        'date' => 'Thu, 17 Aug 2023 22:42:10 +0000'
+        'date' => 'Tue, 21 May 2024 08:29:36 +0000'
     ]
 ];

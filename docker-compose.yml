@@ -1,10 +1,14 @@
-magento:
-  build: .
-  container_name: magento-web
-  ports:
-    - "8089:80"
-  volumes:
-    - ./:/var/www/html
-  external_links:
-    - mysql:mysql
-    - elasticsearch7:elasticsearch7
+version: '2'
+services:
+  magento:
+    build: .
+    container_name: magento-web
+    ports:
+      - "8081:80"
+    volumes:
+      - ./:/var/www/html
+    networks:
+      - spider_web
+networks:
+  spider_web:
+    external: true
