@@ -5,6 +5,7 @@
             <resource id="Magento_Backend::admin">
                 <resource id="Alpha_MyModule::alphabackend" title="Alpha Team Dev" sortOrder="10">
                     <resource id="Alpha_MyModule::index" title="Alpha Team Dev Index" sortOrder="10" />
+                    <resource id="Alpha_MyModule::subscription" title="Alpha Team Dev Subscription" sortOrder="10" />
                 </resource>
             </resource>
         </resources>

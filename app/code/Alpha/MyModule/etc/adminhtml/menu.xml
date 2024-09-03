@@ -15,5 +15,13 @@
              action="alpha/index"
              resource="Alpha_MyModule::index"
         />
+        <add id="Alpha_MyModule::subscription"
+             title="Alpha Team Dev - Subscription"
+             module="Alpha_MyModule"
+             sortOrder="20"
+             parent="Alpha_MyModule::alphabackend"
+             action="alpha/subscription"
+             resource="Alpha_MyModule::subscription"
+        />
     </menu>
 </config>
