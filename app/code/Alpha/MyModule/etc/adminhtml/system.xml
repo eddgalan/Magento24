@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="myConfigTab" translate="label" sortOrder="10">
+            <label>My Config Tab</label>
+        </tab>
+        <section id="myfirstsection" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>My First Section</label>
+            <tab>myConfigTab</tab>
+            <resource>Magento_Config::config</resource>
+            <group id="myConfigGroup" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Config Page Group</label>
+                <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>is enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>This is a config field</comment>
+                </field>
+            </group>
+            <group id="allFieldsGroup" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>All Fields Group</label>
+                <field id="example_text" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Field Text</label>
+                    <comment>This is a Field Text Example</comment>
+                </field>
+                <field id="example_password" type="password" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Field Password</label>
+                    <comment>This is a 'password' Text Example</comment>
+                </field>
+                <field id="example_textarea" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Field Textarea</label>
+                    <comment>This is a TextArea Example</comment>
+                </field>
+                <field id="example_select" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Field Select</label>
+                    <source_model>Alpha\MyModule\Model\Config\Source\MultiSelect</source_model>
+                    <comment>This is a Select Example</comment>
+                </field>
+                <field id="example_multiselect" type="multiselect" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Field Multiselect</label>
+                    <source_model>Alpha\MyModule\Model\Config\Source\MultiSelect</source_model>
+                    <comment>This is a Multiselect Example</comment>
+                </field>
+                <field id="example_date" type="date" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Field Date</label>
+                    <frontend_model>Alpha\MyModule\Model\Config\Frontend\DateField</frontend_model>
+                    <comment>This is a Date Example</comment>
+                </field>
+                <field id="example_time" type="time" sortOrder="61" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Field Time</label>
+                    <frontend_model>Alpha\MyModule\Model\Config\Frontend\TimeField</frontend_model>
+                    <comment>This is a Time Example</comment>
+                </field>
+                <field id="example_datetime" type="datetime" sortOrder="62" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Field Datetime</label>
+                    <frontend_model>Alpha\MyModule\Model\Config\Frontend\DateTimeField</frontend_model>
+                    <comment>This is a DateTime Example</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
