@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <!-- Subscription Table -->
+    <table name="alpha_mymodule_subscriptions" resource="default" engine="innodb" comment="Logs for integrations (IVY)">
+        <column xsi:type="bigint" name="id" unsigned="true" nullable="false" identity="true" comment="Id"/>
+        <column xsi:type="varchar" name="firstname" length="100" nullable="false" comment="Firstname (100)"/>
+        <column xsi:type="varchar" name="lastname" length="100" nullable="false" comment="Lastname (100)"/>
+        <column xsi:type="varchar" name="email" length="100" nullable="false" comment="Email (100)"/>
+        <column xsi:type="varchar" name="status" length="50" nullable="false" default="pending" comment="Status"/>
+        <column xsi:type="datetime" name="created_at" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <column xsi:type="datetime" name="updated_at" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>

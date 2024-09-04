@@ -10,6 +10,8 @@ class Subscription extends Container
     {
         $this->_blockGroup = "Alpha_MyModule";
         $this->_controller = "adminhtml_subscription";
+        $this->_headerText = __('Subscription');
+        $this->_addButtonLabel = __('Add Subscription');
         parent::_construct();
     }
 }

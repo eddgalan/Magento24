@@ -45,6 +45,7 @@ class Index extends Action implements HttpGetActionInterface
     {
         $resultPage = $this->resultPageFactory->create();
         $resultPage->setActiveMenu(self::ADMIN_RESOURCE);
+        $resultPage->getConfig()->getTitle()->prepend(__('Subscriptions'));
         $resultPage->addBreadcrumb(__('Grid Subscriptions'), __('Grid Subscriptions'));
         $resultPage->addBreadcrumb(__('Manage Subscriptions'), __('Subscriptions'));
         return $resultPage;
