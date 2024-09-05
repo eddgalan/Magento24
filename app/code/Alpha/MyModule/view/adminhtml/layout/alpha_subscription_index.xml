@@ -3,9 +3,12 @@
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
+            <!--
             <block class="Alpha\MyModule\Block\Adminhtml\Subscription" name="adminhtml.block.alpha.mymodule.subscription.container">
                 <block class="Alpha\MyModule\Block\Adminhtml\Subscription\Grid" name="adminhtml.block.alpha.mymodule.subscription.grid" as="grid"/>
             </block>
+            -->
+            <uiComponent name="alpha_mymodule_subscription_listing"/>
         </referenceContainer>
     </body>
 </page>
