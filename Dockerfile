@@ -7,6 +7,11 @@ RUN apt-get install -y apache2
 RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/php.list && apt-get update
 RUN apt-get install -y php7.4 libapache2-mod-php7.4 php7.4-mysql php7.4-soap php7.4-bcmath php7.4-xml php7.4-mbstring php7.4-gd php7.4-common php7.4-cli php7.4-curl php7.4-intl php7.4-zip
+RUN apt update && apt install -y libicu-dev && rm -rf /var/lib/apt/lists/*
+# Install XDEBUG
+RUN apt update && apt install php7.4-dev php-pear -y
+RUN pecl channel-update pecl.php.net && pecl install xdebug-3.0.4 # && docker-php-ext-enable xdebug
+# Set up the working directory and copy files
 WORKDIR /var/www/html
 COPY ./config_files ./config_files
 COPY ./magentoinstall.sh ./magentoinstall.sh
